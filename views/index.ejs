@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.get('/crypto', function(data){
+                let list = '<ul>';
+                data.forEach(function(item){
+                    list += '<li>' + item.name + '</li>';
+                });
+                list += '</ul>';
+
+                $('.lists').html(list);
+            }, 'json');
+
+            $('#finance').click(function(){
+                $.get('/finance', function(data){
+                    let list = '<ul>';
+                    data.forEach(function(item){
+                        list += '<li>' + item.name + '</li>';
+                    });
+                    list += '</ul>';
+
+                    // update the DOM with the list of items
+                    $('.lists').html(list);
+                });
+            });
+
+            $('#crypto').click(function(){
+                $.get('/crypto', function(data){
+                    let list = '<ul>';
+                    data.forEach(function(item){
+                        list += '<li>' + item.name + '</li>';
+                    });
+                    list += '</ul>';
+
+                    // update the DOM with the list of items
+                    $('.lists').html(list);
+                });
+            });
+
+            $('#exchanges').click(function(){
+                $.get('/exchanges', function(data){
+                    let list = '<ul>';
+                    data.forEach(function(item){
+                        list += '<li>' + item.name + '</li>';
+                    });
+                    list += '</ul>';
+
+                    // update the DOM with the list of items
+                    $('.lists').html(list);
+                });
+            });
+
+            $('#next').click(function(){
+                $.get('/next', function(data){
+                    let list = '<ul>';
+                    data.forEach(function(item){
+                        list += '<li>' + item.name + '</li>';
+                    });
+                    list += '</ul>';
+
+                    // update the DOM with the list of items
+                    $('.lists').html(list);
+                });
+            });
+
+            $('#previous').click(function(){
+                $.get('/previous', function(data){
+                    let list = '<ul>';
+                    data.forEach(function(item){
+                        list += '<li>' + item.name + '</li>';
+                    });
+                    list += '</ul>';
+
+                    // update the DOM with the list of items
+                    $('.lists').html(list);
+                });
+            });
+
+            $('#top100').click(function(){
+                $.get('/top100', function(data){
+                    let list = '<ul>';
+                    data.forEach(function(item){
+                        list += '<li>' + item.name + '</li>';
+                    });
+                    list += '</ul>';
+
+                    // update the DOM with the list of items
+                    $('.lists').html(list);
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h1 id="crypto">CryptoCurrency</h1>
+    <h1 id="finance">Finance Platform</h1>
+    <h1 id="exchanges">Exchanges</h1>
+    <div class="lists">
+    </div>
+    <button id="previous">Previous 10</button>
+    <button id="top100">List top 100</button>
+    <button id="next">Next 10</button>
+</body>
+</html>
